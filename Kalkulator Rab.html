@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Rab</title>
+    <style>
+        body {
+            background-color: #ffc0cb; /* Warna pink */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            margin-bottom: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px;
+            background-color: #4caf50;
+            color: pink;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Perhitungan Rab</h1>
+
+    <form id="rabForm">
+        <label for="luas">Luas (m²):</label>
+        <input type="number" id="luas" name="luas" required>
+
+        <label for="hargaPerM2">Harga per m² (Rp):</label>
+        <input type="number" id="hargaPerM2" name="hargaPerM2" required>
+
+        <button type="button" onclick="hitungRab()">Hitung Rab</button>
+    </form>
+
+    <p>Hasil Perhitungan Rab: <span id="hasilRab">0</span> Rp</p>
+
+    <script>
+        function hitungRab() {
+            var luasInput = document.getElementById('luas');
+            var hargaPerM2Input = document.getElementById('hargaPerM2');
+
+            var luas = luasInput.value;
+            var hargaPerM2 = hargaPerM2Input.value;
+
+            // Validasi input
+            if (luas.trim() === '' || hargaPerM2.trim() === '') {
+                alert('Mohon isi Luas dan Harga per m².');
+                return;
+            }
+
+            // Hitung Rab
+            var hasilRab = luas * hargaPerM2;
+
+            // Tampilkan hasil Rab di HTML
+            document.getElementById('hasilRab').innerText = hasilRab;
+        }
+    </script>
+
+</body>
+
+</html>
